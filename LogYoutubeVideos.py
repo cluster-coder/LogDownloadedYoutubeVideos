@@ -115,15 +115,15 @@ def log(pathtotest):
                 videos.append(a+'\\'+file)
 
     for videoPath in videos[:]:
-        videoObject=getFolderObject(videoPath, base)
         chosenVideo=None
         possibleVideos=[]
+        exactMatchFound=False
+        ij=0
+        videoObject=getFolderObject(videoPath, base)
         roundedLength=round(float(returnVideoDuration(videoPath)))
         # print(roundedLength)
         videoName=customStringCleaning(os.path.basename(videoPath))
-        exactMatchFound=False
         s=Search(videoName)
-        ij=0
         print(f'{videoName}\n')
         while exactMatchFound!=True and ij<100:
             for video in s.results[ij:]:
@@ -191,4 +191,4 @@ And when the "video" object is created, its just add the infos, the simplest par
 '''
 
 # print('\n\n\n')
-# print(dd)
+# print(ob)
