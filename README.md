@@ -8,7 +8,7 @@ Given a folder path, this code will get all the videos and music files(.mp4, .mp
 > [!NOTE]
 > FFMPEG is used to get the video/music duration and pytube helps with finding it's youtube information, make sure both of them are properly installed.  
 > [FFMPEG download tab](https://www.ffmpeg.org/download.html)  
-> [Pytube github repository](https://github.com/pytube/pytube?tab=readme-ov-file#installation)
+> [Pytubefix github repository](https://github.com/pytube/pytube?tab=readme-ov-file#installation)
 
 ## Usage example
 Suppose we have a folder with 2 videos in the path `C:\Hypothetical folder` we would just open the `LogYoutubeVideos.py` and input this path.  
@@ -55,5 +55,5 @@ When a video is chosen, it's `title`, `URL`, and "`i`" will be present in the `Y
 The result may be inaccurate if the video name is too generic, short or it's view count is too low.
 
 > [!NOTE]
-> As youtube is ocasionally changing, sometimes conflicts with it and pytube's code may arise,
-> browsing [pytube's issues tab](https://github.com/pytube/pytube/issues) and changing a few lines should normally work though.
+> As youtube is ocasionally changing, sometimes conflicts with it and pytube's code may arise,  
+> [pytube's original repository](https://github.com/pytube/pytube) is no longer being maintained or updated, but using the latest version of [pytubefix](https://github.com/JuanBindez/pytubefix) should work.

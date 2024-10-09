@@ -1,6 +1,7 @@
 import subprocess, os
 from json import dump
-from pytube import Search
+# from pytube import Search
+from pytubefix import Search
 
 from datetime import datetime, time, timezone, timedelta
 tz=timezone(timedelta(hours=-3))
@@ -18,6 +19,7 @@ def parseDate(seconds):
 
 
 invalidChars='/:*?"\'<>|\\~.#,'
+# invalidChars='/:*?"\'<>|\\~.#,-_'
 ob={}
 
 def removeInvalidCharacters(string):
@@ -35,6 +37,10 @@ def customStringCleaning(string):
     if ' (320 kbps)' in string:
         index=string.find(' (320 kbps)')
         string=string[:index]+string[index+11:]
+    # for char in ['-','_']:
+    #     while char in string:
+    #         index=string.find(char)
+    #         string=string[:index]+string[index+1:]
     return string
 
 def isVideoOrAudio(string):
@@ -126,7 +132,8 @@ def log(pathtotest):
         s=Search(videoName)
         print(f'{videoName}\n')
         while exactMatchFound!=True and ij<100:
-            for video in s.results[ij:]:
+            # for video in s.results[ij:]:
+            for video in s.videos[ij:]:
                 ij+=1
                 if video.length==roundedLength:
                     # print(ij)
@@ -139,7 +146,7 @@ def log(pathtotest):
                         chosenVideo=video
                         print('Exact match!')
                         break
-                    print('\n')
+                    # print('\n')
                     possibleVideos.append(video)
             if exactMatchFound==False:
                 s.get_next_results()
